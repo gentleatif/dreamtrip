@@ -1,0 +1,42 @@
+<%- include("partials/uploadHeader") %>
+
+
+    <div class="container">
+      <div class="text-center uploadHeading">
+        <h1 class="">Upload New Destination</h1>
+
+      </div>
+
+      <form action="upload" method="post" enctype="multipart/form-data">
+        <div class="form-group mt-5">
+    <div class="mb-2 text-f">
+      <label for="exampleFormControlFile1">Product Image</label>
+
+    </div>
+        <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+        <div class="form-group text-f my-2">
+          <label for="exampleFormControlInput1">Destination Name</label>
+          <input name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="London,UK">
+        </div>
+        <div class="form-group text-f my-2">
+          <label for="exampleFormControlSelect1">Select Category</label>
+          <select name="category" class="form-control" id="exampleFormControlSelect1">
+            <option>Island</option>
+            <option>Mountain and Forest</option>
+            <option>Night Life</option>
+            <option>Winter Sport</option>
+            <option>Town And Cities</option>
+          </select>
+        </div>
+        <div class="form-group text-f my-2">
+          <label for="exampleFormControlInput1">Price</label>
+          <input name="price" type="text" class="form-control" id="exampleFormControlInput1" placeholder="$ 3000">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary btn-lg my-3">Submit</button>
+        </div>
+
+      </form>
+  </div>
+  <%- include("partials/uploadFooter") %>

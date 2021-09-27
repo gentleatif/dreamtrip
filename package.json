@@ -1,0 +1,23 @@
+{
+  "name": "dreamtrip",
+  "version": "1.0.0",
+  "description": "Use must have git installed on your device",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.27.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "gitignore": "^0.7.0",
+    "mongoose": "^6.0.7",
+    "mongoose-findorcreate": "^3.0.0",
+    "multer": "^1.4.3",
+    "path": "^0.12.7"
+  }
+}

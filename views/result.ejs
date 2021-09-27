@@ -1,0 +1,27 @@
+<%- include("partials/uploadHeader") %>
+<div class="container">
+
+
+<div class="row">
+<%  if (destination.length!==0) { %>
+  <%     destination.forEach((item, i) => { %>
+    <div class=" col-sm-12 col-md-4">
+ <img class="rounded w-100 img-sizing" src=<%= item.imagePath %> alt="">
+<div class="d-flex justify-content-between  mb-3">
+  <p class="text-card m-0 p-0"><%= item.location %></p>
+<p class="text-card m-0 p-0" >$<%= item.price%></p>  </div>
+    </div>
+<%     }); %>
+<%  } else { %>
+  <div class="thanks-text">
+    <h2 class="text-center"> You have not added any filter go home and add some filter</h2>
+
+  </div>
+<%  } %>
+
+
+</div>
+
+</div>
+
+<%- include("partials/uploadFooter") %>
