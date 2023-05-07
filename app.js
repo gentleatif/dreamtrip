@@ -14,31 +14,26 @@ app.use(express.json());
 
 app.use(bodyParser.json());
 // for reading form data
-
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  })
-);
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
 // serving static file
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 cloudinary.config({
   cloud_name: "dls1eiwbq",
-  api_key: "447414382585189",
-  api_secret: "3ByHVVddMdt_2wb8-KwRYgP_rF4",
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
   secure: true,
 });
 
 // connecting to mongodb Atlas
-mongoose.connect(
-  "mongodb+srv://dreamtrip:a822682000@cluster0.o0zy1.mongodb.net/?retryWrites=true&w=majority",
-  {
+mongoose
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }
-);
+  })
+  .then(() => console.log("MongoDB Connected"));
 
 // creating DestinationSchema
 const DestinationSchema = new mongoose.Schema({
@@ -99,13 +94,11 @@ app.get("/contact", function (req, res) {
 let category = [];
 
 app.post("/question", async function (req, res) {
-  // console.log(category);
   category.push(req.body.category);
   res.redirect("/results");
 });
 
 app.get("/results", function (req, res) {
-  // console.log(category[0]);
   Destination.find(
     {
       category: category[0],
